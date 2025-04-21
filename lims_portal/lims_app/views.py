@@ -7,7 +7,11 @@ from django.shortcuts import render,redirect
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Hello world")
+    return render(request,"index.html",context={})
 
 def shopping(request):
     return HttpResponse("Welcome to shopping")
+
+def save_student(request):
+    student_name = request.POST['student_name']
+    return render(request,"welcome.html",context={'student_name':student_name})
