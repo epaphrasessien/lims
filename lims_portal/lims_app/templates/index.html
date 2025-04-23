@@ -1,48 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
+{% load static %}
 <html lang="en">
-<head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library Information Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <style>
-        .my_label{
-            color: red;
-            font-size: 20px;
-        }
-        .my_secondary_label{
-            color: blue;
-            font-size: 20px;
-        }
+      .jumbotron{
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: 0.3rem;
+      }
+
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Information Management</title>
-</head>
-<body>
-
-
-
-    <h3>Welcome to our library</h3>
-    <form method="POST" action="/save">
-        {% csrf_token %}
-        <table>
-            <tbody>
-                <tr>
-                    <td><label class="my_label">Student name</label></td>
-                    <td> <input type="text" name="student_name"></td>
-                </tr>
-                <tr>
-                    <td><label class="my_label my_secondary_label">Student age</label></td>
-                    <td> <input type="text" name="student_name"></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button type="submit" style="background: green; display: block; margin-top: 15px; margin-bottom: 15px; font-size: 20px; width: 100%; color: white;">Save</button></td>
-                </tr>
-            </tbody>
-        </table>
-        
-       
-        
-       
-        
-    </form>
-    <a href="/shop">Shopping</a>
-</body>
+  </head>
+  <body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid justify-content-center align-items-center" style="background-color: #A17F1A;">
+          <span class="navbar-brand mb-0 h1 text-light">
+            <img src="{% static '/anu.png' %}" alt="" height="45" style="margin-right: 10px;">
+            All Nations University Library</span>
+        </div>
+        <div class="container-fluid justify-content-center align-items-center">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                {% if current_tab == 'home' %}
+                  <a class="nav-link active" aria-current="page" href="/home">HOME</a>
+                {% else %}
+                  <a class="nav-link" aria-current="page" href="/home">HOME</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if current_tab == 'readers' %}
+                  <a class="nav-link active" aria-current="page" href="/readers">READERS</a>
+                {% else %}
+                  <a class="nav-link" aria-current="page" href="/readers">READERS</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if current_tab == 'books' %}
+                  <a class="nav-link active" aria-current="page" href="/books">BOOKS</a>
+                {% else %}
+                  <a class="nav-link" aria-current="page" href="/books">BOOKS</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if current_tab == 'bag' %}
+                  <a class="nav-link active" aria-current="page" href="/bag">MY BAG</a>
+                {% else %}
+                  <a class="nav-link" aria-current="page" href="/bag">MY BAG</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if current_tab == 'returns' %}
+                  <a class="nav-link active" aria-current="page" href="/returns">RETURNS</a>
+                {% else %}
+                  <a class="nav-link" aria-current="page" href="/returns">RETURNS</a>
+                {% endif %}
+              </li>
+          </ul> 
+      </div>
+    </nav>
+    {% block main_content %}
+    {% endblock %}
+  </body>
 </html>
