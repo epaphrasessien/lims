@@ -20,6 +20,6 @@ from .views import *
 urlpatterns = [
     path('', home),
     path('home', home),
-    path('readers', readers),
+    path('students', students),
     path('save', save_student),
 ]

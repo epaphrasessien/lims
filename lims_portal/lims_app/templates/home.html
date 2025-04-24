@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% load static %}
+
+{% block main_content %}
+<main role="main">
+<div class="jumbotron">
+    <div class="container">
+        <img src="{% static '/anu.png' %}" class="rounded float-start" alt="ANU" height="200" style="margin-right: 20px;">
+        <h1 class="display-4">Hello, students!</h1>
+        <p>Welcome to the ANU library. We have a large collection of books to cater to your academic needs.</p>
+        <p><a role="button" href="#" class="btn btn-primary btn-lg">Browse our collection >></a></p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Why reading is important?</h2>
+        <p>Reading is profoundly important for a multitude of reasons, impacting individuals on intellectual, emotional, and practical levels. It serves as a fundamental building block for learning and personal growth throughout life</p>
+      </div>
+      <div class="col">
+        <h2>Key Benefits</h2>
+        <ul>
+            <li>Expands Vocabulary</li>
+            <li>Increases General Knowledge</li>
+            <li>Improves Memory</li>
+            <li>Enhances Analytical Thinking Skills</li>
+            <li>Improves Focus and Concentration</li>
+            <li>Sparks Imagination and Creativity</li>
+            <li>Boosts Cognitive Development</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Thougth for the day!</h2>
+        <P>"The most profound journeys often begin with a single step, taken with courage and guided by curiosity."</P>
+      </div>
+    </div>
+    <hr>
+</div>
+</main>
+<footer class="container">
+    <P>@ ANU Library 2025</P>
+</footer>
+{% endblock %}
